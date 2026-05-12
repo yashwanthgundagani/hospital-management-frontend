@@ -1,0 +1,37 @@
+import { Component } from '@angular/core';
+import { Appointment } from '../appointment';
+import { AppointmentService } from '../appointment.service';
+import { Router } from '@angular/router';
+import { CreateAppointmentDto } from '../create-appointment-dto';
+
+@Component({
+  selector: 'app-create-appointment',
+  standalone: false,
+  templateUrl: './create-appointment.html',
+  styleUrl: './create-appointment.css',
+})
+export class CreateAppointment {
+  appointment:CreateAppointmentDto = new CreateAppointmentDto();
+  constructor(private appointmentService: AppointmentService,private router: Router) {}
+
+  saveAppointment() {
+    this.appointmentService.createAppointment(this.appointment).subscribe({
+      next: (data) => {
+        console.log('Success:',data);
+        this.goToAppointmentList();
+      },
+      error: (error) => { console.error('API Error:', error); }
+    });
+  }
+
+  onSubmit() {
+    // Handle form submission logic here
+    console.log('Form submitted!', this.appointment);
+    this.saveAppointment();
+
+  }
+
+  goToAppointmentList(){
+    this.router.navigate(['/appointmentlist']);
+  }
+}
