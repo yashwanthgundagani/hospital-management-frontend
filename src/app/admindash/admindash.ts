@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { PatientService } from '../patient.service';
 import { Patient } from '../patient/patient';
-import { ChangeDetectorRef } from '@angular/core';
+import { Observable, startWith, Subject,switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-admindash',
@@ -10,19 +10,28 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrl: './admindash.css',
 })
 export class Admindash {
-  patients: Patient[] = [];
-  constructor(private patientService: PatientService, private cdr: ChangeDetectorRef) {}
+  patients$ !: Observable<Patient[]>;
+  refresh$ = new Subject<void>();
+  constructor(private patientService: PatientService) {}
 
   ngOnInit(): void {
-    this.getPatients();
+    this.patients$ = this.refresh$.pipe(startWith(void 0),
+    switchMap(() => this.patientService.getPatientList()));
+    // this.getPatients();
   }
   
-  getPatients() {
-    this.patientService.getPatientList().subscribe((data: Patient[]) => {
-      console.log("API Response:", data);
-      this.patients = data;
-      this.cdr.detectChanges(); // Manually trigger change detection
-      console.log("Assigned patients:", this.patients);
+  // getPatients() {
+  //   this.patientService.getPatientLis
+  //   subscribe((data: Patient[]) => {
+  //     console.log("API Response:", data);
+  //     this.patients$ = data;
+  //             console.log("Assigned patients:", this.patients$);
+  //   });
+
+  delete(id: number) { 
+    this.patientService.deletePatient(id).subscribe((data) => {
+      console.log(data);
+      this.refresh$.next();
     });
   }
 }

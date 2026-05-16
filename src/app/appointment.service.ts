@@ -13,14 +13,17 @@ export class AppointmentService {
   constructor(private httpClient: HttpClient) {}
 
   getAppointmentList():Observable<Appointment[]> {
+    console.log("GET API CALLED");
       return this.httpClient.get<Appointment[]>(`${this.baseUrl}`);
     }
 
   createAppointment(appointment: CreateAppointmentDto): Observable<Appointment> {
+    console.log("POST API CALLED");
     return this.httpClient.post<Appointment>(`${this.baseUrl}`,appointment);
   }
 
   deleteAppointment(id:number): Observable<Object> {
+    console.log("DELETE API CALLED");
     return this.httpClient.delete(`${this.baseUrl}/${id}`);
   }
 }

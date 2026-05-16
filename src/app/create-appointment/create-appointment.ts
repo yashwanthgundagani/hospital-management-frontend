@@ -26,7 +26,7 @@ export class CreateAppointment {
 
   onSubmit() {
     // Handle form submission logic here
-    console.log('Form submitted!', this.appointment);
+    console.log('Appointment Form submitted!', this.appointment);
     this.saveAppointment();
 
   }

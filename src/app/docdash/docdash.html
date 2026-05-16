@@ -10,7 +10,11 @@
         
 
         <li class="nav-item">
-            <a style="color: white;"class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/appointmentlist">Appointments</a>
+            <a style="color: white;"class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/create-patient">Add Patient</a>
+          </li>
+
+        <li class="nav-item">
+            <a style="color: white;"class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/medicine-list">View Medicines</a>
           </li>
 
         
@@ -29,9 +33,9 @@
   
   <div class="container">
   <hr>
-    <h2 style="text-align: center;margin-top: 20PX;">Admin Dashboard</h2>
+    <h2 style="text-align: center;margin-top: 20PX;">Doctor Dashboard</h2>
     <a style="color: rgb(86, 86, 86); font-size: x-large;"><marquee behavior="scroll" direction="left">
-      Welcome to Admin Dashboard. Please find the patient list below!!. Click Appointments to view and update Appointments, Click Add Appointment to add new Appointment</marquee></a>
+      Welcome to Doctor Dashboard. Please find the patient list below!!. Click Appointments to view and update Appointments, Click Add Appointment to add new Appointment</marquee></a>
   <hr>
   <!-- <input type="text" name="search" [(ngModel)]="searchText" placeholder="Search" (input)="searchPatients()">  -->
   <br>
@@ -40,14 +44,15 @@
   <br>
 
 <table class="table table-striped">
-    <thead>
+    <thead class="table header">
         <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Age</th>
-            <th>Fees</th>
+            <th>Dose</th>
+            <th>Prescription</th>
+            <th>Blood Type</th>
             <th>Urgency</th>
-            <th>Action</th>
 
         </tr>
     </thead>
@@ -56,11 +61,10 @@
             <td>{{patient.id}}</td>
             <td>{{patient.name}}</td>
             <td>{{patient.age}}</td>
-            <td>{{patient.fees}}</td>
+            <td>{{patient.dose}}</td>
+            <td>{{patient.prescription}}</td>
+            <td>{{patient.blood}}</td>
             <td>{{patient.urgency}}</td>
-            <td>
-              <button class="btn btn-danger" (click)="delete(patient.id)">Delete</button>
-            </td>
         </tr>
     </tbody>
 </table>
