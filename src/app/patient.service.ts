@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Patient } from './patient/patient';
 import { Observable } from 'rxjs';
-import { CreatePatientDto } from './create-patient-dto';
+import { CreatePatientDto } from './create-patient/dto/create-patient-dto';
 
 @Injectable({
   providedIn: 'root',
@@ -21,5 +21,13 @@ export class PatientService {
 
   createPatient(patient: CreatePatientDto): Observable<Object> {
     return this.httpClient.post(`${this.baseUrl}`, patient);
+  }
+
+  getPatientById(id:number):Observable<Patient> {
+    return this.httpClient.get<Patient>(`${this.baseUrl}/${id}`);
+  }
+
+  updatePatient(id: number, patient: Patient): Observable<Object> {
+    return this.httpClient.put<Patient>(`${this.baseUrl}/${id}`, patient);
   }
 }

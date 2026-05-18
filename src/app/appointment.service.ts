@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Appointment } from './appointment';
-import { CreateAppointmentDto } from './create-appointment-dto';
+import { CreateAppointmentDto } from './create-appointment/dto/create-appointment-dto';
 
 @Injectable({
   providedIn: 'root',
