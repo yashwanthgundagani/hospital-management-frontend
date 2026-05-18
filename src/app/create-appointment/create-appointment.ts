@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Appointment } from '../appointment';
 import { AppointmentService } from '../appointment.service';
 import { Router } from '@angular/router';
-import { CreateAppointmentDto } from '../create-appointment-dto';
+import { CreateAppointmentDto } from './dto/create-appointment-dto';
 
 @Component({
   selector: 'app-create-appointment',

@@ -15,6 +15,8 @@ import { Home } from './home/home';
 import { Docdash } from './docdash/docdash';
 import { CreatePatient } from './create-patient/create-patient';
 import { Medicinelist } from './medicinelist/medicinelist';
+import { CreateMedicine } from './create-medicine/create-medicine';
+import { UpdatePatient } from './update-patient/update-patient';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { Medicinelist } from './medicinelist/medicinelist';
     Docdash,
     CreatePatient,
     Medicinelist,
+    CreateMedicine,
+    UpdatePatient,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, CommonModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners()],

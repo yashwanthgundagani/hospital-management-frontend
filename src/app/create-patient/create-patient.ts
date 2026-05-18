@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PatientService } from '../patient.service';
-import { CreatePatientDto } from '../create-patient-dto';
+import { CreatePatientDto } from './dto/create-patient-dto';
 @Component({
   selector: 'app-create-patient',
   standalone: false,
