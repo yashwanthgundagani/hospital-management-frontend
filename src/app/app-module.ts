@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { Admindash } from './admindash/admindash';
-import { Patient } from './patient/patient';
 import { HttpClientModule } from '@angular/common/http';
 
 import { CommonModule } from '@angular/common';
@@ -17,12 +16,12 @@ import { CreatePatient } from './create-patient/create-patient';
 import { Medicinelist } from './medicinelist/medicinelist';
 import { CreateMedicine } from './create-medicine/create-medicine';
 import { UpdatePatient } from './update-patient/update-patient';
+import { ViewPatient } from './view-patient/view-patient';
 
 @NgModule({
   declarations: [
     App,
     Admindash,
-    Patient,
     AppointmentComponent,
     CreateAppointment,
     Home,
@@ -31,6 +30,7 @@ import { UpdatePatient } from './update-patient/update-patient';
     Medicinelist,
     CreateMedicine,
     UpdatePatient,
+    ViewPatient,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, CommonModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners()],

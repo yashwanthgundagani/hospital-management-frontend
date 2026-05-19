@@ -6,7 +6,7 @@ import { CreatePatientDto } from './dto/create-patient-dto';
   selector: 'app-create-patient',
   standalone: false,
   templateUrl: './create-patient.html',
-  styleUrl: './create-patient.css',
+  styleUrls: ['./create-patient.css'],
 })
 export class CreatePatient {
   patient: CreatePatientDto = new CreatePatientDto();

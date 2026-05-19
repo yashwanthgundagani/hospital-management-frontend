@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   selector: 'app-create-medicine',
   standalone: false,
   templateUrl: './create-medicine.html',
-  styleUrl: './create-medicine.css',
+  styleUrls: ['./create-medicine.css'],
 })
 export class CreateMedicine {
   medicine: CreateMedicineDto = new CreateMedicineDto();

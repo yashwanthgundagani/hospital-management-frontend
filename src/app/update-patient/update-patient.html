@@ -26,12 +26,11 @@
   <div class="container">
   <hr>
 
-  <!-- <p>{{ patient | json }}</p> -->
 
-<div class="container">
+<div class="container" *ngIf="isLoaded">
     <h2 class="text-center">Update Patient</h2>
 
-    <form *ngIf="patient" (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label>Name</label>
             <input type="text" id="name" name="name" placeholder="Enter Name" class="form-control" [(ngModel)]="patient.name" required>
