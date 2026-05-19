@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Patient } from './patient/patient';
+import { Patient } from './patient';
 import { Observable } from 'rxjs';
 import { CreatePatientDto } from './create-patient/dto/create-patient-dto';
 

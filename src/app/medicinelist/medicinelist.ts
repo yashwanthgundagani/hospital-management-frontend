@@ -7,7 +7,7 @@ import { Observable, startWith, Subject, switchMap } from 'rxjs';
   selector: 'app-medicinelist',
   standalone: false,
   templateUrl: './medicinelist.html',
-  styleUrl: './medicinelist.css',
+  styleUrls: ['./medicinelist.css'],
 })
 export class Medicinelist {
   constructor(private medicineService: MedicineService) {}

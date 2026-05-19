@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Patient } from '../patient/patient';
+import { Patient } from '../patient';
 import { PatientService } from '../patient.service';
 import { Observable, Subject, switchMap } from 'rxjs';
 import { startWith } from 'rxjs/operators';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   selector: 'app-docdash',
   standalone: false,
   templateUrl: './docdash.html',
-  styleUrl: './docdash.css',
+  styleUrls: ['./docdash.css'],
 })
 export class Docdash {
   patients$ !:Observable<Patient[]>;
@@ -22,10 +22,20 @@ export class Docdash {
       switchMap(() => this.patientService.getPatientList()));
     }
 
-    updatePatient(id: number) {
-      // Implement navigation to update patient page
+    update(id: number) {
       console.log('Update patient with ID:', id);
       this.router.navigate(['/update-patient', id]);
-      // Example: this.router.navigate(['/update-patient', id]);
+    }
+
+    delete(id: number) {
+      this.patientService.deletePatient(id).subscribe((data) => {
+        console.log('Deleted successfully', data);
+        this.refresh$.next(); // Trigger a refresh after deletion
+      });
+    }
+
+    view(id: number) {
+      console.log('View patient with ID:', id);
+      this.router.navigate(['/view-patient', id]);
     }
 }

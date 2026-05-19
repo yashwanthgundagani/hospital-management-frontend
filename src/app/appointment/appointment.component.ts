@@ -8,7 +8,7 @@ import { Subject, switchMap } from 'rxjs';
   selector: 'app-appointment',
   standalone: false,
   templateUrl: './appointment.html',
-  styleUrl: './appointment.css',
+  styleUrls: ['./appointment.css'],
 })
 export class AppointmentComponent {
   constructor(private appointmentService: AppointmentService) {}

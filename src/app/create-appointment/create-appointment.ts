@@ -7,7 +7,7 @@ import { CreateAppointmentDto } from './dto/create-appointment-dto';
   selector: 'app-create-appointment',
   standalone: false,
   templateUrl: './create-appointment.html',
-  styleUrl: './create-appointment.css',
+  styleUrls: ['./create-appointment.css'],
 })
 export class CreateAppointment {
   appointment:CreateAppointmentDto = new CreateAppointmentDto();
