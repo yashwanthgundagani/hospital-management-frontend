@@ -17,6 +17,7 @@ import { Medicinelist } from './medicinelist/medicinelist';
 import { CreateMedicine } from './create-medicine/create-medicine';
 import { UpdatePatient } from './update-patient/update-patient';
 import { ViewPatient } from './view-patient/view-patient';
+import { UpdateMedicine } from './update-medicine/update-medicine';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ViewPatient } from './view-patient/view-patient';
     CreateMedicine,
     UpdatePatient,
     ViewPatient,
+    UpdateMedicine,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, CommonModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners()],
