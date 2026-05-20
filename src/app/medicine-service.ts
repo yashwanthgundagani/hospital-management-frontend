@@ -20,7 +20,15 @@ export class MedicineService {
     return this.http.post<Medicine>(`${this.baseUrl}`, medicine);
   }
 
-  deleteMedicine(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}/${id}`);
+  deleteMedicine(id: number): Observable<Object> {
+    return this.http.delete(`${this.baseUrl}/${id}`);
+  }
+
+  getMedicineById(id:number):Observable<Medicine> {
+      return this.http.get<Medicine>(`${this.baseUrl}/${id}`);
+  }
+  
+  updateMedicine(id: number, medicine: Medicine): Observable<Object> {
+      return this.http.put<Medicine>(`${this.baseUrl}/${id}`, medicine);
   }
 }
