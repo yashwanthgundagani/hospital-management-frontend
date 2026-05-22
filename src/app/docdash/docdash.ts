@@ -4,6 +4,7 @@ import { PatientService } from '../patient.service';
 import { Observable, Subject, switchMap } from 'rxjs';
 import { startWith } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { Docauth } from '../docauth';
 
 @Component({
   selector: 'app-docdash',
@@ -15,7 +16,7 @@ export class Docdash {
   patients$ !:Observable<Patient[]>;
   private refresh$ = new Subject<void>();
   
-  constructor(private patientService: PatientService,private router: Router) {}
+  constructor(private patientService: PatientService,private router: Router,private docauth: Docauth) {}
   
     ngOnInit(): void {
       this.patients$ = this.refresh$.pipe(startWith(void 0),
@@ -37,5 +38,10 @@ export class Docdash {
     view(id: number) {
       console.log('View patient with ID:', id);
       this.router.navigate(['/view-patient', id]);
+    }
+
+    logout(){
+      this.docauth.logout();
+      this.router.navigate(['home']);
     }
 }

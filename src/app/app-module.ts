@@ -18,6 +18,8 @@ import { CreateMedicine } from './create-medicine/create-medicine';
 import { UpdatePatient } from './update-patient/update-patient';
 import { ViewPatient } from './view-patient/view-patient';
 import { UpdateMedicine } from './update-medicine/update-medicine';
+import { Doclogin } from './doclogin/doclogin';
+import { Adlogin } from './adlogin/adlogin';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { UpdateMedicine } from './update-medicine/update-medicine';
     UpdatePatient,
     ViewPatient,
     UpdateMedicine,
+    Doclogin,
+    Adlogin,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, CommonModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners()],

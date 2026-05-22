@@ -11,20 +11,26 @@ import { CreateMedicine } from './create-medicine/create-medicine';
 import { UpdatePatient } from './update-patient/update-patient';
 import { ViewPatient } from './view-patient/view-patient';
 import { UpdateMedicine } from './update-medicine/update-medicine';
+import { Doclogin } from './doclogin/doclogin';
+import { Adlogin } from './adlogin/adlogin';
+import { Adminauthguard } from './adminauthguard';
+import { Docauthguard } from './docauthguard';
 
 const routes: Routes = [{
-  path:'admin',component:Admindash},
-{path:'appointmentlist',component:AppointmentComponent},
-{path:'create-appointment',component:CreateAppointment},
+  path:'admin',component:Admindash,canActivate:[Adminauthguard]},
+{path:'appointmentlist',component:AppointmentComponent,canActivate:[Adminauthguard]},
+{path:'create-appointment',component:CreateAppointment,canActivate:[Adminauthguard]},
 {path:'home',component:Home},
 {path:'',redirectTo:'home',pathMatch:'full'},
-{path:'docdash',component:Docdash},
-{path:'create-patient',component:CreatePatient},
-{path:'medicine-list',component:Medicinelist},
-{path:'create-medicine',component:CreateMedicine},
-{path:'update-patient/:id',component:UpdatePatient},
-{path:'view-patient/:id',component:ViewPatient},
-{path:'update-medicine/:id',component:UpdateMedicine}
+{path:'docdash',component:Docdash,canActivate:[Docauthguard]},
+{path:'create-patient',component:CreatePatient,canActivate:[Docauthguard]},
+{path:'medicine-list',component:Medicinelist,canActivate:[Docauthguard]},
+{path:'create-medicine',component:CreateMedicine,canActivate:[Docauthguard]},
+{path:'update-patient/:id',component:UpdatePatient,canActivate:[Docauthguard]},
+{path:'view-patient/:id',component:ViewPatient,canActivate:[Docauthguard]},
+{path:'update-medicine/:id',component:UpdateMedicine,canActivate:[Docauthguard]},
+{path:'doclogin',component:Doclogin},
+{path:'adlogin',component:Adlogin}
 ];
 
 @NgModule({

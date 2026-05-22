@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PatientService } from '../patient.service';
 import { Patient } from '../patient';
 import { Observable, startWith, Subject,switchMap } from 'rxjs';
+import { Adminauth } from '../adminauth';
 
 @Component({
   selector: 'app-admindash',
@@ -12,7 +13,7 @@ import { Observable, startWith, Subject,switchMap } from 'rxjs';
 export class Admindash {
   patients$ !: Observable<Patient[]>;
   refresh$ = new Subject<void>();
-  constructor(private patientService: PatientService) {}
+  constructor(private patientService: PatientService,private adminauth: Adminauth) {}
 
   ngOnInit(): void {
     this.patients$ = this.refresh$.pipe(startWith(void 0),
@@ -24,5 +25,9 @@ export class Admindash {
       console.log(data);
       this.refresh$.next();
     });
+  }
+
+  logout(){
+    this.adminauth.logout();
   }
 }
